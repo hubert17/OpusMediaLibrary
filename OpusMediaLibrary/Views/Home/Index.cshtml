@@ -1,0 +1,33 @@
+﻿@model IEnumerable<OpusMediaLibrary.Models.Song>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Upload Music", "Create")
+</p>
+
+<style>
+    audio {
+        width: 100%
+    }
+</style>
+@foreach(var song in Model)
+{
+    if(!string.IsNullOrEmpty(song.Link))
+    {
+        song.Link = song.Link.Remove(song.Link.Length - 1, 1) + "1";
+    }
+    <div class="panel panel-default col-md-6">
+        <div class="panel-heading">@song.Title by @song.Artist</div>
+        <div class="panel-body">
+            <audio name="media" id="media" controls>
+                <source src="@song.Link" type="application/ogg">
+            </audio>
+        </div>
+    </div>
+}
+

@@ -1,0 +1,46 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:title" content="JukeOpus by Bernard Gabon" />
+    <meta property="og:url" content="http://www.bernardgabon.com" />
+    <meta property="og:description" content="An online music library using Opus format and cloud storage." />
+    <title>@ViewBag.Title - JukeOpus by Bernard Gabon</title>
+
+    @if (TempData["Message"] != null)
+    {
+        <script>
+            alert('@TempData["Message"]')
+        </script>
+    }
+
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js" integrity="sha256-0rguYS0qgS6L4qVzANq4kjxPLtvnp5nn2nB5G1lWRv4=" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="container body-content"> 
+        @if (ViewBag.ResultMessage != null)
+        {
+            <div class="alert alert-info">@ViewBag.ResultMessage</div>
+        }
+
+        @RenderBody()
+
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - Bernard S. Gabon</p>
+        </footer>
+    </div>
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script src="//ajax.aspnetcdn.com/ajax/respond/1.4.2/respond.min.js"></script>
+</body>
+</html>
